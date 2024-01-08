@@ -1,11 +1,11 @@
 {
     "name": "gthibaud-uid",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "SEE LICENSE IN ./LICENSE",
     "author": "Grégoire Thibaud <gregoire@creastel.com>",
     "private": false,
-    "main": "./lib/index.tsx",
-    "types": "./lib/index.d.tsx",
+    "main": "./lib/index.js",
+    "types": "./lib/index.d.js",
     "files": [
         "lib/**/*"
     ],
@@ -27,11 +27,8 @@
     },
     "scripts": {
         "build": "rm -rf ./lib && tsc -p .",
-        "checkPrepare": "yarn test && yarn format && yarn lint && yarn build",
         "release": "yarn version --patch && npm publish --tag latest",
-        "releaseMajor": "yarn version --patch --major && npm publish --tag latest",
-        "test": "echo \"No test specified\" && exit 0",
-        "preversion": "yarn format && yarn test && yarn build",
+        "preversion": "yarn format && yarn build",
         "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
         "lint": "tslint -p tsconfig.json",
         "prepare": "husky install"
