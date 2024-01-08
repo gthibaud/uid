@@ -1,0 +1,63 @@
+{
+    "name": "gthibaud-uid",
+    "version": "0.0.1",
+    "license": "SEE LICENSE IN ./LICENSE",
+    "author": "Grégoire Thibaud <gregoire@creastel.com>",
+    "private": false,
+    "main": "./lib/index.tsx",
+    "types": "./lib/index.d.tsx",
+    "files": [
+        "lib/**/*"
+    ],
+    "keywords": [
+        "uid",
+        "id",
+        "id-generator",
+        "uid-generator",
+        "gthibaud"
+    ],
+    "sideEffects": false,
+    "publishConfig": {
+        "access": "public"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:gthibaud/uid.git",
+        "directory": "/"
+    },
+    "scripts": {
+        "build": "rm -rf ./lib && tsc -p .",
+        "checkPrepare": "yarn test && yarn format && yarn lint && yarn build",
+        "release": "yarn version --patch && npm publish --tag latest",
+        "releaseMajor": "yarn version --patch --major && npm publish --tag latest",
+        "test": "echo \"No test specified\" && exit 0",
+        "preversion": "yarn format && yarn test && yarn build",
+        "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
+        "lint": "tslint -p tsconfig.json",
+        "prepare": "husky install"
+    },
+    "prettier": "@owlgrid-dev/prettier-config",
+    "lint-staged": {
+        "*.{json,md,css}": [
+            "prettier --write"
+        ],
+        "*.{js,jsx,ts,tsx}": [
+            "prettier --write",
+            "tslint -p tsconfig.json"
+        ]
+    },
+    "devDependencies": {
+        "@owlgrid-dev/prettier-config": "^0.0.6",
+        "@types/node": "^20.10.7",
+        "@types/prettier": "^3.0.0",
+        "husky": "^8.0.3",
+        "lint-staged": "^15.2.0",
+        "prettier": "^3.1.1",
+        "prettier-plugin-organize-imports": "^3.2.4",
+        "tslint-config-prettier": "^1.18.0",
+        "typescript": "^5.3.3"
+    },
+    "dependencies": {
+        "nanoid": "^5.0.4"
+    }
+}
