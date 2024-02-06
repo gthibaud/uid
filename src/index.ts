@@ -11,7 +11,7 @@ export const idLength = 12;
 // Regex id
 export const idRegex = /^[123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz]{12}$/;
 
-// Create uid generator. Collision risk is: https://zelark.github.io/nano-id-cc/
+// Create uid generator. Collision risk is 1% over 5B uid generated (https://zelark.github.io/nano-id-cc/)
 const nanoid = customAlphabet(idAlphabet, idLength);
 
 /**
